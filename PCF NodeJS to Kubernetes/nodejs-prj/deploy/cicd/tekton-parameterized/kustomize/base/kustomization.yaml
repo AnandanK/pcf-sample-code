@@ -1,0 +1,12 @@
+resources:
+  - nodejs-prj-ingress.yaml
+  - nodejs-prj-tekton-triggers-admin-role.yaml
+  - nodejs-prj-tekton-triggers-admin-serviceaccount.yaml
+  - nodejs-prj-git-event-triggerbinding.yaml
+  - nodejs-prj-clone-build-push-pipeline.yaml
+  - nodejs-prj-clone-push-serviceaccount.yaml
+  - nodejs-prj-git-repo-eventlistener.yaml
+  - nodejs-prj-image-registry-secret.yaml
+  - nodejs-prj-run-clone-build-push-triggertemplate.yaml
+  - nodejs-prj-tekton-triggers-admin-rolebinding.yaml
+  - cfnodejsapp-vcapasenv-secret.yaml

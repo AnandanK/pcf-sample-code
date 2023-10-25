@@ -1,0 +1,71 @@
+move2kube:
+  minreplicas: "1"
+  services:
+    cfnodejsapp:
+      "8080":
+        servicetype: Ingress
+        urlpath: /cfnodejsapp
+      containerizationoption:
+        - Nodejs-Dockerfile
+      enable: true
+      port: "8080"
+      statefulset: false
+  target:
+    cicd:
+      tekton:
+        gitrepobasicauthsecret: ""
+        gitreposshsecret: ""
+        registrypushsecret: ""
+    default:
+      clustertype: Kubernetes
+      ingress:
+        host: nodejs-prj.com
+        ingressclassname: ""
+        tls: ""
+    imageregistry:
+      namespace: nodejs-prj
+      quay.io:
+        logintype: no authentication
+      url: quay.io
+  transformers:
+    kubernetes:
+      argocd:
+        namespace: ""
+    types:
+      - Tekton
+      - KubernetesVersionChanger
+      - ComposeAnalyser
+      - Python-Dockerfile
+      - ClusterSelector
+      - DotNetCore-Dockerfile
+      - ComposeGenerator
+      - Liberty
+      - Parameterizer
+      - DockerfileImageBuildScript
+      - ContainerImagesPushScriptGenerator
+      - ReadMeGenerator
+      - ZuulAnalyser
+      - WarRouter
+      - EarAnalyser
+      - WarAnalyser
+      - Jar
+      - ArgoCD
+      - WinWebApp-Dockerfile
+      - Tomcat
+      - Knative
+      - PHP-Dockerfile
+      - Kubernetes
+      - Jboss
+      - Maven
+      - CloudFoundry
+      - DockerfileParser
+      - Buildconfig
+      - Gradle
+      - Rust-Dockerfile
+      - Nodejs-Dockerfile
+      - Golang-Dockerfile
+      - Ruby-Dockerfile
+      - DockerfileDetector
+      - EarRouter
+      - OperatorTransformer
+  transformerselector: ""

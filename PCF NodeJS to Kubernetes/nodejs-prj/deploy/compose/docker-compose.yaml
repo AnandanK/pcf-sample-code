@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+  cfnodejsapp:
+    container_name: cfnodejsapp
+    environment:
+      BLUEMIX_REGION: region
+      TEST_ENV: region
+      VCAP_APPLICATION: region
+      VCAP_SERVICES: region
+    image: quay.io/nodejs-prj/cfnodejsapp:latest
+    ports:
+      - target: 8080
+        published: 8080

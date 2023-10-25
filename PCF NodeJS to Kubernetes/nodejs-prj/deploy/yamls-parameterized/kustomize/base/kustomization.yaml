@@ -1,0 +1,5 @@
+resources:
+  - cfnodejsapp-deployment.yaml
+  - cfnodejsapp-service.yaml
+  - cfnodejsapp-vcapasenv-secret.yaml
+  - nodejs-prj-ingress.yaml

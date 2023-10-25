@@ -1,0 +1,21 @@
+
+---
+apiVersion: triggers.tekton.dev/v1beta1
+kind: EventListener
+metadata:
+    creationTimestamp: null
+    name: nodejs-prj-git-repo
+spec:
+    namespaceSelector: {}
+    resources: {}
+    serviceAccountName: nodejs-prj-tekton-triggers-admin
+    triggers:
+        - bindings:
+            - ref: nodejs-prj-git-event
+          template:
+            ref: nodejs-prj-run-clone-build-push
+status:
+    configuration:
+        generatedName: ""
+
+...
